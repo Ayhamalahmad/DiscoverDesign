@@ -8,13 +8,17 @@ let skills = document.querySelector(".skills");
 let progSpan = document.querySelectorAll(".prog span");
 let number = document.querySelectorAll(".box .number");
 let stats = document.querySelector(".stats");
-let started = false;
 let dYear = document.querySelector(".dYear");
 
+let shuffles = document.querySelectorAll(".shuffle li");
+let imageContainer = document.querySelectorAll(".image-container  .box");
+console.log(imageContainer);
+let started = false;
+
 // open Menu
-menuBotton.addEventListener("click",(e)=>{
+menuBotton.addEventListener("click", (e) => {
   ullinks.classList.toggle("open");
-})
+});
 
 //  Close Menu
 document.addEventListener("click", function (e) {
@@ -25,10 +29,9 @@ document.addEventListener("click", function (e) {
   }
 });
 //  Stop The Propagation On Menu
-ullinks.addEventListener("click",(e)=>{
+ullinks.addEventListener("click", (e) => {
   e.stopPropagation();
-})
-
+});
 
 // Global function Scroll
 function scrolTo(e) {
@@ -68,7 +71,7 @@ function showAndG(e, scrollnumber, aClass, progres) {
       }
       started = true;
     }
-  })
+  });
 }
 
 showAndG(spanUp, 1000, "show", progSpan);
@@ -89,10 +92,36 @@ let dynamicYearText = document.createTextNode(new Date().getFullYear());
 dYear.appendChild(dynamicYearText);
 
 // Show Peogress Number
-window.addEventListener("scroll",(e)=>{
-  if(window.scrollY >= skills.offsetTop){
-    progSpan.forEach((span)=>{
-      span.classList.add("prog-number")
-    })
+window.addEventListener("scroll", (e) => {
+  if (window.scrollY >= skills.offsetTop) {
+    progSpan.forEach((span) => {
+      span.classList.add("prog-number");
+    });
   }
-})
+});
+
+// event click
+shuffles.forEach((shuffle) => {
+  shuffle.addEventListener("click",hnadleclass);
+  shuffle.addEventListener("click",handleBox);
+
+//hnadle class
+function hnadleclass(){
+  shuffles.forEach((shuffle) => {
+    shuffle.classList.remove("active");
+    this.classList.add("active");
+  });
+}
+
+// Change displayed box
+function handleBox(){
+  imageContainer.forEach((image)=>{
+    image.style.display="none";
+  })
+  document.querySelectorAll(this.dataset.filter).forEach((element)=>{
+      element.style.display = "block";
+  })
+}
+
+
+});
