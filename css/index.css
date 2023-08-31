@@ -905,7 +905,7 @@ header nav .form i {
     border-radius: 20px;
 }
 
-.our-skills .skills .porg-holder .prog span::before {
+.our-skills .skills .porg-holder .prog span.prog-number::before {
     content: attr(data-progres);
     position: absolute;
     background-color: black;
@@ -919,7 +919,7 @@ header nav .form i {
 
 }
 
-.our-skills .skills .porg-holder .prog span::after {
+.our-skills .skills .porg-holder .prog span.prog-number::after {
     content: '';
     position: absolute;
     border-style: solid;

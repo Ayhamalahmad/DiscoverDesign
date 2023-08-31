@@ -12,9 +12,10 @@ let started = false;
 let dYear = document.querySelector(".dYear");
 
 // open Menu
-menuBotton.onclick = function () {
+menuBotton.addEventListener("click",(e)=>{
   ullinks.classList.toggle("open");
-};
+})
+
 //  Close Menu
 document.addEventListener("click", function (e) {
   if (e.target !== menuBotton && e.target !== ullinks && e.target !== lilinks) {
@@ -24,9 +25,10 @@ document.addEventListener("click", function (e) {
   }
 });
 //  Stop The Propagation On Menu
-ullinks.onclick = function (e) {
+ullinks.addEventListener("click",(e)=>{
   e.stopPropagation();
-};
+})
+
 
 // Global function Scroll
 function scrolTo(e) {
@@ -46,7 +48,7 @@ scrolTo(upBotton);
 
 // Function  Add class To any Element  With ScrollY And Add Width To Element And To Starting count
 function showAndG(e, scrollnumber, aClass, progres) {
-  window.onscroll = () => {
+  window.addEventListener("scroll", () => {
     // Add & Remove class To any Element
     if (window.scrollY >= scrollnumber) {
       e.classList.add(aClass);
@@ -66,7 +68,7 @@ function showAndG(e, scrollnumber, aClass, progres) {
       }
       started = true;
     }
-  };
+  })
 }
 
 showAndG(spanUp, 1000, "show", progSpan);
@@ -85,3 +87,12 @@ function startCount(e) {
 //  Dynamic Year
 let dynamicYearText = document.createTextNode(new Date().getFullYear());
 dYear.appendChild(dynamicYearText);
+
+// Show Peogress Number
+window.addEventListener("scroll",(e)=>{
+  if(window.scrollY >= skills.offsetTop){
+    progSpan.forEach((span)=>{
+      span.classList.add("prog-number")
+    })
+  }
+})
