@@ -892,7 +892,8 @@ header nav .form i {
 
 .our-skills .skills .porg-holder .prog {
     background-color: #c9c6c6;
-    height: 30px;
+    height: 15px;
+    border-radius: 19px;
 }
 
 .our-skills .skills .porg-holder .prog span {
@@ -900,7 +901,8 @@ header nav .form i {
     position: relative;
     display: block;
     height: 100%;
-    transition: all .8s;
+    transition: all .8s ease-in-out;
+    border-radius: 20px;
 }
 
 .our-skills .skills .porg-holder .prog span::before {
