@@ -1201,6 +1201,7 @@ header nav .form i {
     display: flex;
     justify-content: space-between;
     margin-top: 100px;
+    flex-direction: row-reverse;
 }
 
 @media (max-width: 767px) {
@@ -1285,6 +1286,7 @@ input:focus:-ms-input-placeholder {
 
 .contact-us .contant form textarea.min-input {
     height: 200px;
+    resize: none;
 }
 
 .contact-us .contant form input[type="submit"] {

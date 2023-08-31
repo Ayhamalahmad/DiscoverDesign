@@ -1,6 +1,6 @@
 let spanUp = document.querySelector(".up");
 let menuBotton = document.querySelector(".toggle-menu");
-
+//
 let ullinks = document.querySelector(".ullinks");
 let lilinks = document.querySelectorAll(".ullinks li");
 let upBotton = document.querySelectorAll(".up");
@@ -9,11 +9,40 @@ let progSpan = document.querySelectorAll(".prog span");
 let number = document.querySelectorAll(".box .number");
 let stats = document.querySelector(".stats");
 let dYear = document.querySelector(".dYear");
-
+//
 let shuffles = document.querySelectorAll(".shuffle li");
 let imageContainer = document.querySelectorAll(".image-container  .box");
-console.log(imageContainer);
+//
+let landing = document.querySelector(".landing");
+//
+let changerLeft = document.querySelector(".changer-left");
+let changerRight = document.querySelector(".changer-right");
+// console.log(changerRight);
 let started = false;
+// Initialize index to keep track of the current image
+let currentIndex = 0; 
+// Array of image URLs
+let images = [
+  "../imges/jesse-cason-LEWbO3MqUsM-unsplash.jpg",
+  "../imges/michael-soledad-FJh36ln5pXc-unsplash.jpg",
+  "../imges/dennis-cortes-fwfobhsF1Kw-unsplash.jpg",
+  "../imges/alex-gruber-Z1wosLgwGT8-unsplash.jpg",
+];
+// Event listener for the "changerRight" button
+changerRight.addEventListener("click", () => {
+  changeImage(1); // Increment index for changerRight
+});
+// Event listener for the "changerLeft" button
+changerLeft.addEventListener("click", () => {
+  changeImage(-1); // Decrement index for changerLeft
+});
+// Function to change the background image
+function changeImage(increment){
+    // Update the current index cyclically
+  currentIndex = (currentIndex + increment + images.length) % images.length; //Increment index cyclically
+   // Set the background image of the landing element
+  landing.style.backgroundImage = `url(${images[currentIndex]})`;
+}
 
 // open Menu
 menuBotton.addEventListener("click", (e) => {
@@ -102,26 +131,24 @@ window.addEventListener("scroll", (e) => {
 
 // event click
 shuffles.forEach((shuffle) => {
-  shuffle.addEventListener("click",hnadleclass);
-  shuffle.addEventListener("click",handleBox);
+  shuffle.addEventListener("click", hnadleclass);
+  shuffle.addEventListener("click", handleBox);
 
-//hnadle class
-function hnadleclass(){
-  shuffles.forEach((shuffle) => {
-    shuffle.classList.remove("active");
-    this.classList.add("active");
-  });
-}
+  //hnadle class
+  function hnadleclass() {
+    shuffles.forEach((shuffle) => {
+      shuffle.classList.remove("active");
+      this.classList.add("active");
+    });
+  }
 
-// Change displayed box
-function handleBox(){
-  imageContainer.forEach((image)=>{
-    image.style.display="none";
-  })
-  document.querySelectorAll(this.dataset.filter).forEach((element)=>{
+  // Change displayed box
+  function handleBox() {
+    imageContainer.forEach((image) => {
+      image.style.display = "none";
+    });
+    document.querySelectorAll(this.dataset.filter).forEach((element) => {
       element.style.display = "block";
-  })
-}
-
-
+    });
+  }
 });
