@@ -559,6 +559,8 @@ header nav .form i {
     justify-content: center;
     cursor: pointer;
     padding-top: var(--padding-top);
+    width: fit-content;
+    margin: auto;
 }
 
 .portfolio ul li {

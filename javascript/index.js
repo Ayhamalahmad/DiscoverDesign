@@ -17,8 +17,9 @@ let landing = document.querySelector(".landing");
 //
 let changerLeft = document.querySelector(".changer-left");
 let changerRight = document.querySelector(".changer-right");
-let bullets = document.querySelectorAll(".bullets li");
-// console.log(changerRight);
+let bullets = document.querySelectorAll(".landing .bullets li");
+
+// Initialize started
 let started = false;
 // Initialize index to keep track of the current image
 let currentIndex = 0; 
@@ -26,10 +27,10 @@ let currentIndex = 0;
 let images = [
   "../imges/jesse-cason-LEWbO3MqUsM-unsplash.jpg",
   "../imges/landing-1.jpg",
+  "../imges/landing-2.jpg",
   "../imges/landing-3.jpg",
   "../imges/landing-4.jpg",
   "../imges/landing-5.jpg",
-  "../imges/landing-6.jpg",
 ];
 // Event listener for the "changerRight" button
 changerRight.addEventListener("click", () => {
@@ -46,6 +47,21 @@ function changeImage(increment){
    // Set the background image of the landing element
   landing.style.backgroundImage = `url(${images[currentIndex]})`;
 }
+
+// 
+bullets.forEach((bullet)=>{
+  bullet.addEventListener("click", (e)=>{
+    bullets.forEach((ele , index)=>{
+      ele.classList.remove("active");
+      changeImage(index);
+    })
+    e.target.classList.add("active");
+    changeImage(-1);
+
+  })
+})
+// 
+
 // open Menu
 menuBotton.addEventListener("click", (e) => {
   ullinks.classList.toggle("open");
