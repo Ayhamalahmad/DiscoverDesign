@@ -110,7 +110,7 @@ ul {
     border-radius: 50%;
     cursor: pointer;
     font-size: 20px;
-    padding: 9px;
+    padding: 5px;
 }
 
 .up.show {
@@ -300,6 +300,7 @@ header nav .form i {
     background-size: cover;
     min-height: 100vh;
     position: relative;
+    transition: background 0.5s ease-in-out;
 }
 
 .landing .overlay {
