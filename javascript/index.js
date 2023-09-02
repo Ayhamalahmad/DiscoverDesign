@@ -17,12 +17,13 @@ let landing = document.querySelector(".landing");
 //
 let changerLeft = document.querySelector(".changer-left");
 let changerRight = document.querySelector(".changer-right");
+let bulletsContainer = document.querySelector(".landing .bullets");
 let bullets = document.querySelectorAll(".landing .bullets li");
 
 // Initialize started
 let started = false;
 // Initialize index to keep track of the current image
-let currentIndex = 0; 
+let currentIndex = 0;
 // Array of image URLs
 let images = [
   "../imges/jesse-cason-LEWbO3MqUsM-unsplash.jpg",
@@ -32,35 +33,47 @@ let images = [
   "../imges/landing-4.jpg",
   "../imges/landing-5.jpg",
 ];
+
 // Event listener for the "changerRight" button
 changerRight.addEventListener("click", () => {
   changeImage(1); // Increment index for changerRight
 });
+
 // Event listener for the "changerLeft" button
 changerLeft.addEventListener("click", () => {
   changeImage(-1); // Decrement index for changerLeft
 });
+
+
 // Function to change the background image
-function changeImage(increment){
-    // Update the current index cyclically
+function changeImage(increment) {
+   // Remove the 'active' class from the current bullet
+   bulletListItems[currentIndex].classList.remove("active");
+  // Update the current index cyclically
   currentIndex = (currentIndex + increment + images.length) % images.length; //Increment index cyclically
-   // Set the background image of the landing element
+  // Set the background image of the landing element
   landing.style.backgroundImage = `url(${images[currentIndex]})`;
+  // Add the 'active' class to the new current bullet
+  bulletListItems[currentIndex].classList.add("active");
 }
 
-// 
-bullets.forEach((bullet)=>{
-  bullet.addEventListener("click", (e)=>{
-    bullets.forEach((ele , index)=>{
-      ele.classList.remove("active");
-      changeImage(index);
-    })
-    e.target.classList.add("active");
-    changeImage(-1);
-
-  })
-})
-// 
+// Create and append list items for bullets
+for (let i = 0; i < images.length; i++) {
+  let bulletLi = document.createElement("li");
+  // Add class Active The First Element
+  if(i == 0){
+    bulletLi.classList.add("active");
+  }
+  bulletLi.classList.add("bullet");
+  bulletsContainer.appendChild(bulletLi);
+}
+// Get all bullet list items and add click event listeners
+let bulletListItems = document.querySelectorAll(".bullet");
+bulletListItems.forEach((bulletListItem, index) => {
+  bulletListItem.addEventListener("click", () => {
+    changeImage(index - currentIndex);
+  });
+});
 
 // open Menu
 menuBotton.addEventListener("click", (e) => {
