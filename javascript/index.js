@@ -44,11 +44,10 @@ changerLeft.addEventListener("click", () => {
   changeImage(-1); // Decrement index for changerLeft
 });
 
-
 // Function to change the background image
 function changeImage(increment) {
-   // Remove the 'active' class from the current bullet
-   bulletListItems[currentIndex].classList.remove("active");
+  // Remove the 'active' class from the current bullet
+  bulletListItems[currentIndex].classList.remove("active");
   // Update the current index cyclically
   currentIndex = (currentIndex + increment + images.length) % images.length; //Increment index cyclically
   // Set the background image of the landing element
@@ -61,7 +60,7 @@ function changeImage(increment) {
 for (let i = 0; i < images.length; i++) {
   let bulletLi = document.createElement("li");
   // Add class Active The First Element
-  if(i == 0){
+  if (i == 0) {
     bulletLi.classList.add("active");
   }
   bulletLi.classList.add("bullet");
@@ -182,4 +181,24 @@ shuffles.forEach((shuffle) => {
       element.style.display = "block";
     });
   }
+});
+// testimonials
+const tContents = document.querySelectorAll(".testimonials .contant");
+const tBullets = document.querySelectorAll(".testimonials .bullets li");
+tBullets.forEach((Bullet, index) => {
+  Bullet.addEventListener("click", () => {
+        // Remove the 'active' class from all .contant elements
+    tContents.forEach((Content) => {
+      Content.classList.remove("active");
+    });
+    // Add the 'active' class to the clicked bullet's corresponding .contant
+    tContents[index].classList.add("active");
+    tContents[index + 1].classList.add("active");
+           // Remove the 'active' class from all bullets
+           tBullets.forEach((b) => {
+            b.classList.remove('active');
+        });
+        // Add the 'active' class to the clicked bullet
+        Bullet.classList.add('active');
+  });
 });

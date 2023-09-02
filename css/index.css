@@ -825,8 +825,12 @@ header nav .form i {
     display: flex;
     align-items: center;
     margin-bottom: 30px;
+    display: none;
 }
+.our-skills .testimonials .contant.active{
+    display: flex;
 
+}
 
 .our-skills .testimonials .contant img {
     width: 100px;
