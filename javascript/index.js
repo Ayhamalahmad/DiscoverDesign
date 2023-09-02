@@ -26,12 +26,12 @@ let started = false;
 let currentIndex = 0;
 // Array of image URLs
 let images = [
-  "../imges/jesse-cason-LEWbO3MqUsM-unsplash.jpg",
-  "../imges/landing-1.jpg",
-  "../imges/landing-2.jpg",
-  "../imges/landing-3.jpg",
-  "../imges/landing-4.jpg",
-  "../imges/landing-5.jpg",
+  "imges/jesse-cason-LEWbO3MqUsM-unsplash.jpg",
+  "imges/landing-1.jpg",
+  "imges/landing-2.jpg",
+  "imges/landing-3.jpg",
+  "imges/landing-4.jpg",
+  "imges/landing-5.jpg",
 ];
 
 // Event listener for the "changerRight" button
