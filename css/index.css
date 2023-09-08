@@ -830,9 +830,21 @@ header nav .form i {
 
 .our-skills .testimonials .contant.active {
     display: flex;
+    animation: slide-in-top .3s ease-in-out;
 
 }
+@keyframes slide-in-top {
+    0% {
+      transform: translateY(77px);
+      opacity: 0;
+      filter: blur(10px);
+    }
 
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
 .our-skills .testimonials .contant img {
     width: 100px;
     border-radius: 50%;
